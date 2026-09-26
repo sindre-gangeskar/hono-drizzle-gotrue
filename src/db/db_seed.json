@@ -1,0 +1,89 @@
+{
+	"roles": [{ "name": "admin" }, { "name": "user" }],
+	"users": [
+		{ "email": "admin@admin.com", "password": "admin1234", "roleId": 1 },
+		{ "email": "user@user.com", "password": "user1234", "roleId": 2 }
+	],
+	"categories": [
+		{ "name": "clothing" },
+		{ "name": "pants", "parentId": 1 },
+		{ "name": "jackets", "parentId": 1 },
+		{ "name": "sweaters", "parentId": 1 },
+		{ "name": "shoes", "parentId": 1 },
+		{ "name": "headwear", "parentId": 1 },
+		{ "name": "leather", "parentId": 3 },
+		{ "name": "bomber", "parentId": 3 }
+	],
+	"products": [
+		{
+			"name": "Classic Straight Jeans",
+			"description": "Mid-rise straight-leg denim jeans in a classic blue wash.",
+			"categoryId": 2
+		},
+		{
+			"name": "Relaxed Chino Trousers",
+			"description": "Soft cotton chinos with a relaxed fit and tapered leg.",
+			"categoryId": 2
+		},
+		{
+			"name": "Wool Blend Overcoat",
+			"description": "Warm double-breasted overcoat for cooler weather.",
+			"categoryId": 3
+		},
+		{
+			"name": "Quilted Field Jacket",
+			"description": "Lightweight insulated jacket with practical front pockets.",
+			"categoryId": 3
+		},
+		{
+			"name": "Merino Crewneck Sweater",
+			"description": "Fine merino wool crewneck for everyday layering.",
+			"categoryId": 4
+		},
+		{
+			"name": "Cotton Cable Knit Sweater",
+			"description": "Textured cable-knit sweater in heavyweight cotton.",
+			"categoryId": 4
+		},
+		{
+			"name": "Canvas Low-Top Sneakers",
+			"description": "Durable canvas sneakers with a rubber sole.",
+			"categoryId": 5
+		},
+		{
+			"name": "Leather Chelsea Boots",
+			"description": "Pull-on leather boots with elastic side panels.",
+			"categoryId": 5
+		},
+		{
+			"name": "Organic Cotton Cap",
+			"description": "Adjustable six-panel cap with an embroidered logo.",
+			"categoryId": 6
+		},
+		{
+			"name": "Ribbed Wool Beanie",
+			"description": "Soft wool beanie with a folded cuff.",
+			"categoryId": 6
+		},
+		{
+			"name": "Leather Moto Jacket",
+			"description": "Fitted leather jacket with asymmetric zip closure.",
+			"categoryId": 7
+		},
+		{
+			"name": "Vintage Leather Trucker",
+			"description": "Structured leather trucker jacket with metal buttons.",
+			"categoryId": 7
+		},
+		{
+			"name": "MA-1 Bomber Jacket",
+			"description": "Water-resistant bomber jacket with ribbed trim.",
+			"categoryId": 8
+		},
+		{
+			"name": "Lightweight Flight Bomber",
+			"description": "Lightly padded bomber for transitional weather.",
+			"categoryId": 8
+		}
+	]
+}
