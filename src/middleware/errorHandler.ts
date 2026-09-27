@@ -3,5 +3,5 @@ import type { HTTPException } from "hono/http-exception";
 
 export default (error: HTTPException | Error, c: Context) => {
 	console.error(error);
-	return c.json({ message: "Something something" }, 500);
+	return c.json({ message: error.message ?? "Internal server error" });
 };
