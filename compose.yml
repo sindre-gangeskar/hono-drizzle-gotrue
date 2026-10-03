@@ -1,6 +1,23 @@
 # Use postgres/example user/password credentials
 
 services:
+  caddy:
+    image: caddy:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./CaddyFile:/etc/caddy/Caddyfile:ro
+  webclient:
+    ports:
+     - 3001:3001
+    build:
+      context: ./src/apps/webclient
+    command: bun run dev --port 3001 --host 0.0.0.0
+    volumes:
+      - ./src/apps/webclient:/app
+      - /app/node_modules
+
   db:
     image: postgres:17
     ports:
@@ -20,7 +37,7 @@ services:
     ports: 
       - 9999:9999
     environment: 
-      DATABASE_URL: postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@db:5432/postgres
+      DATABASE_URL: postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@db:${DATABASE_PORT}/postgres
       API_EXTERNAL_URL: ${API_EXTERNAL_URL}
       GOTRUE_SITE_URL: ${GOTRUE_SITE_URL}
       GOTRUE_DB_DRIVER: ${GOTRUE_DB_DRIVER}

@@ -5,5 +5,5 @@
 }
 
 .primary {
-	@apply bg-sky-500 :hover-bg-sky-700 active:bg-400;
+	@apply bg-sky-500 hover:bg-sky-700 active:bg-sky-400;
 }
