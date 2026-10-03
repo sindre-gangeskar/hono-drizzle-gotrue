@@ -1,7 +1,10 @@
+import type { ButtonHTMLAttributes } from "react";
+import Loader from "./Loader";
+
 type Color = "primary" | "secondary" | "success" | "warning" | "danger"
 
-interface ButtonProps {
-  label?: string
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode
   disabled?: boolean;
   loading?: boolean;
   onClick?: () => void
@@ -9,12 +12,12 @@ interface ButtonProps {
   className?: React.HTMLAttributes<HTMLButtonElement>[ "className" ]
   color?: Color
 }
-export default function Button({ label, onClick, role = "button", className, color = "primary", disabled }: ButtonProps) {
+export default function Button({ children, onClick, role = "button", className, color = "primary", disabled, loading }: ButtonProps) {
   return <button className={`${className} ${getColor(color)} btn`}
     type="button"
     role={role}
     disabled={disabled}
-    onClick={onClick}>{label}</button>;
+    onClick={onClick}>{loading ? <Loader /> : children}</button>;
 }
 
 function getColor(color: Color) {
