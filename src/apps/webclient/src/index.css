@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.btn {
+	@apply transition-colors;
+}
+
+.primary {
+	@apply bg-sky-500 :hover-bg-sky-700 active:bg-400;
+}
