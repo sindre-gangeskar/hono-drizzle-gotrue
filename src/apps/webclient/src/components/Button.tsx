@@ -10,7 +10,7 @@ interface ButtonProps {
   color?: Color
 }
 export default function Button({ label, onClick, role = "button", className, color = "primary", disabled }: ButtonProps) {
-  return <button className={`${className} ${getColor(color)} .btn rounded-lg p-4 min-h-12  max-h-fit max-w-fit`}
+  return <button className={`${className} ${getColor(color)} btn rounded-lg p-4 min-h-12  max-h-fit max-w-fit`}
     type="button"
     role={role}
     disabled={disabled}
@@ -19,8 +19,8 @@ export default function Button({ label, onClick, role = "button", className, col
 
 function getColor(color: Color) {
   const buttonColor: Record<string, string> = {
-    primary: '.primary',
-    secondary: '.secondary'
+    primary: 'primary',
+    secondary: 'secondary'
   };
 
   return buttonColor[ color ];

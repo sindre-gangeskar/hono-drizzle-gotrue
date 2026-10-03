@@ -7,8 +7,8 @@ const App = () => {
     <div className="content">
       <div className="w-full h-full"></div>
       <h1 className=''>Rsbuild with React</h1>
-      <p className=''>Start building amazing things with Rsbuild.</p>
-      <Button color={"primary"} disabled={true} className='self-center' label='Hi!' onClick={() => { console.info('CLICK!') }} />
+      <p className=''>Start building amazing things with Rsbuild</p>
+      <Button color={"primary"} className='self-center' label='Hi!' onClick={() => { console.info('CLICK!') }} />
     </div>
   );
 };
