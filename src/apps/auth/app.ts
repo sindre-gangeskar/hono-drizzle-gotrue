@@ -1,7 +1,7 @@
 import { arktypeValidator } from "@hono/arktype-validator";
 import { type } from "arktype";
 import { type Context, Hono } from "hono";
-import { login } from "./services";
+import gotrueService from "../../lib/gotrue";
 
 const Email = type("string.email").configure({
 	message: "Please enter a valid email address",
@@ -13,10 +13,17 @@ const LoginForm = type({
 });
 
 const app = new Hono();
+
 app.post("/login", arktypeValidator("json", LoginForm), async (c: Context) => {
 	const body = await c.req.json();
-	const user = await login(body.email, body.password);
+	const user = await gotrueService.login(body.email, body.password);
 	return c.json({ message: "Logged in successfully", user: user }, 200);
+});
+
+app.post("/signup", arktypeValidator("json", LoginForm), async (c: Context) => {
+	const body = await c.req.json();
+	const response = await gotrueService.signup(body.email, body.password);
+	return c.json({ message: response.message });
 });
 
 export default app;

@@ -3,20 +3,16 @@ import getEnv from "../helpers/variables-helper";
 import relations from "./relations";
 
 const envs = getEnv();
-const databaseUrl = new URL(envs.DATABASE_URL);
 const db = drizzle({
 	relations: relations,
 	logger: true,
 	connection: {
-		host: decodeURIComponent(databaseUrl.hostname),
-		user: decodeURIComponent(databaseUrl.username),
-		password: decodeURIComponent(databaseUrl.password),
-		database: databaseUrl.pathname.slice(1),
-		port: decodeURIComponent(databaseUrl.port),
-		ssl: {
-			ca: envs.DATABASE_CA,
-			rejectUnauthorized: true,
-		},
+		host: envs.DATABASE_HOST,
+		user: envs.DATABASE_USER,
+		password: envs.DATABASE_PASSWORD,
+		database: envs.DATABASE_SCHEMA,
+		port: 5432,
+		ssl: false,
 	},
 });
 export default db;
