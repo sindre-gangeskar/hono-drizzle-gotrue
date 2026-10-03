@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .btn {
-	@apply transition-colors;
+	@apply transition-colors p-4 rounded-lg cursor-pointer duration-100;
 }
 
 .primary {
