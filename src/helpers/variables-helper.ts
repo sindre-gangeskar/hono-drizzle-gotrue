@@ -7,7 +7,6 @@ export default function getEnv(): Record<string, string> {
 		DATABASE_USER: process.env.DATABASE_USER,
 		DATABASE_PORT: process.env.DATABASE_PORT,
 		DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
-		DATABASE_SCHEMA: process.env.DATABASE_SCHEMA,
 		GOTRUE_SITE_URL: process.env.GOTRUE_SITE_URL,
 		GOTRUE_INTERNAL_URL: process.env.GOTRUE_INTERNAL_URL,
 		SITE_URL_DOMAIN: process.env.SITE_URL_DOMAIN,
