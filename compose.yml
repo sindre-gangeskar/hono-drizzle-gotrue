@@ -54,7 +54,7 @@ services:
       GOTRUE_SMTP_PASS: ${GOTRUE_SMTP_PASS}
       GOTRUE_SMTP_USER: ${GOTRUE_SMTP_USER}
       GOTRUE_SMTP_ADMIN_EMAIL: ${GOTRUE_SMTP_ADMIN_EMAIL}
-      GOTRUE_MAILER_TEMPLATES_CONFIRMATION: "Your confirmation code is {{.Token}}"
+      GOTRUE_MAILER_TEMPLATES_CONFIRMATION: http://api:3000/templates/confirmation.html
       GOTRUE_MAILER_SUBJECTS_CONFIRMATION: "Please confirm"
       PORT: 9999
       DB_NAMESPACE: auth

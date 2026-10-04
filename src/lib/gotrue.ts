@@ -29,6 +29,19 @@ class GoTrueService {
 			createAndThrowHttpError({});
 		}
 	}
+	async verify(token: string, email: string) {
+		try {
+			const response = await fetch(`${gotrueUrl}/verify`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ token, email, type: "signup" }, null, 2),
+			});
+			return await response.json();
+		} catch (error) {
+			console.error(error);
+			createAndThrowHttpError({});
+		}
+	}
 }
 
 const gotrueService = new GoTrueService();
