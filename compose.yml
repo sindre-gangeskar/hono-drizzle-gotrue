@@ -1,6 +1,18 @@
 # Use postgres/example user/password credentials
 
 services:
+  migration_service:
+    build:
+      context: .
+    command: ["bun", "run", "db:prepare"]
+    volumes: 
+      - .:/app
+      - /app/node_modules
+    environment: 
+      DATABASE_HOST: db
+    depends_on:
+      db:
+        condition: service_healthy
   caddy:
     image: caddy:latest
     ports:
@@ -9,6 +21,8 @@ services:
     volumes:
       - ./CaddyFile:/etc/caddy/Caddyfile:ro
   api:
+    depends_on:
+      - gotrue
     ports:
     - 3000:3000
     build:
@@ -39,6 +53,12 @@ services:
     environment:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_USER: ${DATABASE_USER}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d postgres"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
   gotrue:
     image: supabase/gotrue:v2.197.0
     ports: 
@@ -57,7 +77,13 @@ services:
       GOTRUE_MAILER_TEMPLATES_CONFIRMATION: http://api:3000/templates/confirmation.html
       GOTRUE_MAILER_SUBJECTS_CONFIRMATION: "Please confirm"
       PORT: 9999
-      DB_NAMESPACE: auth
+    depends_on:
+      migration_service: 
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+          
+      
   mailpit: 
     image: axllent/mailpit:latest
     ports: 

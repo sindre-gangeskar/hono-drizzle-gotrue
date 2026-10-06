@@ -7,18 +7,23 @@
 		"db:pull": "bunx drizzle-kit pull",
 		"db:push": "bunx drizzle-kit push",
 		"db:seed": "bun ./src/db/seed.ts",
-		"db:reset": "bash ./src/cli/reset-db.sh"
+		"db:reset": "bash ./src/cli/reset-db.sh",
+		"db:prepare": "bun run ./src/db/prepare.ts && bun run db:generate && bun run db:migrate",
+		"start": "docker compose up -d",
+		"start:force": "docker compose up -d --force-recreate",
+		"stop": "docker compose down",
+		"stop:reset": "docker compose down -v"
 	},
 	"dependencies": {
 		"@hono/arktype-validator": "^2.0.1",
-		"arktype": "^2.2.5",
-		"hono": "^4.13.9",
-		"pg": "^8.23.0"
+		"arktype": "^2.2.7",
+		"hono": "^4.13.13",
+		"pg": "^8.23.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.15",
 		"@types/bun": "latest",
-		"drizzle-kit": "^1.0.0-rc.4",
-		"drizzle-orm": "^1.0.0-rc.4"
+		"drizzle-kit": "^1.0.0-rc.5-ab785fc",
+		"drizzle-orm": "^1.0.0-rc.5-ab785fc"
 	}
 }

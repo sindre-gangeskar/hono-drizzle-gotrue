@@ -13,6 +13,6 @@ export default defineConfig({
 		database: envs.DATABASE_SCHEMA,
 		ssl: false,
 	},
-	schema: ["./src/db/models", "./src/db/schemas"],
+	schema: ["./src/db/schemas", "./src/db/models"],
 	out: "./src/db/drizzle",
 });

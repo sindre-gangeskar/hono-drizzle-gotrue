@@ -9,7 +9,9 @@ app.get("/", (c) => {
 app.route("/auth", authApp);
 
 app.get("/templates/confirmation.html", async (c) => {
-	const template = await Bun.file("./templates/confirmation.html").text();
+	const template = await Bun.file(
+		"/app/src/templates/confirmation.html",
+	).text();
 	return c.html(template, 200, { "Content-Type": "text/html; charset=utl-8" });
 });
 

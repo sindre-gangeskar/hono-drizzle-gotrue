@@ -1,15 +1,11 @@
 {
   "version": "8",
   "dialect": "postgres",
-  "id": "e1428d6d-b703-4e42-a8b0-621c53a13891",
+  "id": "ed6c4b88-deb8-48c1-8524-667f42e4fa28",
   "prevIds": [
     "00000000-0000-0000-0000-000000000000"
   ],
   "ddl": [
-    {
-      "name": "auth",
-      "entityType": "schemas"
-    },
     {
       "name": "shop",
       "entityType": "schemas"
@@ -25,18 +21,6 @@
       "name": "products",
       "entityType": "tables",
       "schema": "shop"
-    },
-    {
-      "isRlsEnabled": false,
-      "name": "roles",
-      "entityType": "tables",
-      "schema": "auth"
-    },
-    {
-      "isRlsEnabled": false,
-      "name": "users",
-      "entityType": "tables",
-      "schema": "auth"
     },
     {
       "type": "integer",
@@ -148,102 +132,6 @@
       "table": "products"
     },
     {
-      "type": "integer",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": {
-        "type": "always",
-        "name": "roles_id_seq",
-        "increment": "1",
-        "startWith": "1",
-        "minValue": "1",
-        "maxValue": "2147483647",
-        "cache": 1,
-        "cycle": false
-      },
-      "name": "id",
-      "entityType": "columns",
-      "schema": "auth",
-      "table": "roles"
-    },
-    {
-      "type": "text",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": null,
-      "name": "name",
-      "entityType": "columns",
-      "schema": "auth",
-      "table": "roles"
-    },
-    {
-      "type": "integer",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": {
-        "type": "always",
-        "name": "users_id_seq",
-        "increment": "1",
-        "startWith": "1",
-        "minValue": "1",
-        "maxValue": "2147483647",
-        "cache": 1,
-        "cycle": false
-      },
-      "name": "id",
-      "entityType": "columns",
-      "schema": "auth",
-      "table": "users"
-    },
-    {
-      "type": "text",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": null,
-      "name": "email",
-      "entityType": "columns",
-      "schema": "auth",
-      "table": "users"
-    },
-    {
-      "type": "text",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": null,
-      "name": "password",
-      "entityType": "columns",
-      "schema": "auth",
-      "table": "users"
-    },
-    {
-      "type": "integer",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": null,
-      "name": "roleId",
-      "entityType": "columns",
-      "schema": "auth",
-      "table": "users"
-    },
-    {
       "nameExplicit": false,
       "columns": [
         "parentId"
@@ -278,23 +166,6 @@
       "table": "products"
     },
     {
-      "nameExplicit": false,
-      "columns": [
-        "roleId"
-      ],
-      "schemaTo": "auth",
-      "tableTo": "roles",
-      "columnsTo": [
-        "id"
-      ],
-      "onUpdate": "NO ACTION",
-      "onDelete": "NO ACTION",
-      "name": "users_roleId_roles_id_fkey",
-      "entityType": "fks",
-      "schema": "auth",
-      "table": "users"
-    },
-    {
       "columns": [
         "id"
       ],
@@ -312,26 +183,6 @@
       "name": "products_pkey",
       "schema": "shop",
       "table": "products",
-      "entityType": "pks"
-    },
-    {
-      "columns": [
-        "id"
-      ],
-      "nameExplicit": false,
-      "name": "roles_pkey",
-      "schema": "auth",
-      "table": "roles",
-      "entityType": "pks"
-    },
-    {
-      "columns": [
-        "id"
-      ],
-      "nameExplicit": false,
-      "name": "users_pkey",
-      "schema": "auth",
-      "table": "users",
       "entityType": "pks"
     },
     {
@@ -355,28 +206,6 @@
       "name": "categories_name_key",
       "schema": "shop",
       "table": "categories",
-      "entityType": "uniques"
-    },
-    {
-      "nameExplicit": false,
-      "columns": [
-        "name"
-      ],
-      "nullsNotDistinct": false,
-      "name": "roles_name_key",
-      "schema": "auth",
-      "table": "roles",
-      "entityType": "uniques"
-    },
-    {
-      "nameExplicit": false,
-      "columns": [
-        "email"
-      ],
-      "nullsNotDistinct": false,
-      "name": "users_email_key",
-      "schema": "auth",
-      "table": "users",
       "entityType": "uniques"
     }
   ],

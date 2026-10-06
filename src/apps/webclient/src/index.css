@@ -5,7 +5,7 @@
 }
 
 .primary {
-	@apply bg-stone-800 hover:bg-stone-700 active:bg-stone-600 disabled:bg-stone-900 disabled:text-stone-400 disabled:pointer-events-none;
+	@apply text-neutral-50 bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-600 disabled:bg-neutral-950 disabled:text-neutral-700 disabled:pointer-events-none;
 }
 
 .input {

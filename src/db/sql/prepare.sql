@@ -1,0 +1,3 @@
+CREATE SCHEMA IF NOT EXISTS auth;
+ALTER ROLE CURRENT_USER
+SET search_path TO auth, public;

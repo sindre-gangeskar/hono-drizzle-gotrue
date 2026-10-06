@@ -12,9 +12,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: React.HTMLAttributes<HTMLButtonElement>[ "className" ]
   color?: Color
 }
-export default function Button({ children, onClick, role = "button", className, color = "primary", disabled, loading }: ButtonProps) {
+export default function Button({ children, onClick, role = "button", className, color = "primary", disabled, loading, type = "button" }: ButtonProps) {
   return <button className={`${className} ${getColor(color)} btn`}
-    type="button"
+    type={type}
     role={role}
     disabled={disabled}
     onClick={onClick}>{loading ? <Loader /> : children}</button>;

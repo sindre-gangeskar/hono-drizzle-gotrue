@@ -11,7 +11,7 @@ const db = drizzle({
 		user: envs.DATABASE_USER,
 		password: envs.DATABASE_PASSWORD,
 		database: envs.DATABASE_SCHEMA,
-		port: 5432,
+		port: envs.DATABASE_PORT,
 		ssl: false,
 	},
 });

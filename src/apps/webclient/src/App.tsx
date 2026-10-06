@@ -1,14 +1,16 @@
 import './App.css';
 import './index.css';
-import { Route, Routes } from 'react-router';
-import Home from './pages/home';
-import Login from './pages/login';
+import { SessionProvider } from './contexts/SessionProvider';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AppRouter from './components/router/AppRouter';
 const App = () => {
+  const queryClient = new QueryClient();
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/login' element={<Login />} />
-    </Routes>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider>
+        <AppRouter />
+      </SessionProvider>
+    </QueryClientProvider>
   );
 };
 

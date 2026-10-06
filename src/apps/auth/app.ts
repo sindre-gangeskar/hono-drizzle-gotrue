@@ -11,7 +11,6 @@ const LoginForm = type({
 	email: Email,
 	password: "string",
 });
-
 const VerifyForm = type({
 	email: Email,
 	token: "string",
@@ -21,8 +20,8 @@ const app = new Hono();
 
 app.post("/login", arktypeValidator("json", LoginForm), async (c: Context) => {
 	const body = await c.req.json();
-	const user = await gotrueService.login(body.email, body.password);
-	return c.json({ message: "Logged in successfully", user: user }, 200);
+	const response = await gotrueService.login(body.email, body.password);
+	return c.json(response, response.code);
 });
 
 app.post("/signup", arktypeValidator("json", LoginForm), async (c: Context) => {
@@ -34,7 +33,7 @@ app.post("/signup", arktypeValidator("json", LoginForm), async (c: Context) => {
 app.post("/verify", arktypeValidator("json", VerifyForm), async (c) => {
 	const body = await c.req.json();
 	const response = await gotrueService.verify(body.token, body.email);
-	return c.json(response, response.code ?? 200);
+	return c.json(response, response.code);
 });
 
 export default app;

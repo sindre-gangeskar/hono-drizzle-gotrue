@@ -1,9 +1,7 @@
 import { defineRelations } from "drizzle-orm";
-import * as schema from "./models";
+import * as schema from ".";
 
 export default defineRelations(schema, (r) => ({
-	roles: { users: r.many.users() },
-	users: { role: r.one.roles({ from: r.users.roleId, to: r.roles.id }) },
 	categories: { products: r.many.products() },
 	products: {
 		category: r.one.categories({
