@@ -10,7 +10,7 @@ const db = drizzle({
 		host: envs.DATABASE_HOST,
 		user: envs.DATABASE_USER,
 		password: envs.DATABASE_PASSWORD,
-		database: envs.DATABASE_SCHEMA,
+		database: envs.DATABASE_NAME,
 		port: envs.DATABASE_PORT,
 		ssl: false,
 	},

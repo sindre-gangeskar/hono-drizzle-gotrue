@@ -10,7 +10,7 @@ export default defineConfig({
 		port: +envs.DATABASE_PORT,
 		user: envs.DATABASE_USER,
 		password: envs.DATABASE_PASSWORD,
-		database: envs.DATABASE_SCHEMA,
+		database: envs.DATABASE_NAME,
 		ssl: false,
 	},
 	schema: ["./src/db/schemas", "./src/db/models"],
