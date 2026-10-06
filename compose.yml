@@ -31,6 +31,8 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    environment:
+      GOTRUE_JWT_SECRET: ${GOTRUE_JWT_SECRET}
   webclient:
     ports:
      - 3001:3001
