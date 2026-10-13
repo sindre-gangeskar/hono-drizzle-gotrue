@@ -50,6 +50,13 @@
 	pointer-events: none;
 }
 
+.form-card {
+	@apply relative self-center z-1 w-screen h-screen sm:max-w-md sm:w-full sm:h-fit justify-center content-center;
+}
+.form {
+	@apply relative flex flex-col justify-center self-center space-y-4 items-center w-full;
+}
+
 .primary {
 	@apply text-neutral-950 bg-neutral-50 hover:bg-neutral-200 active:bg-neutral-300 disabled:bg-neutral-500 disabled:text-neutral-800 disabled:pointer-events-none;
 }
