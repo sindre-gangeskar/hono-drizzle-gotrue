@@ -65,15 +65,15 @@ export default function Login() {
     <>
       <Background />
       <Container className="relative w-full flex justify-center max-w-300">
-        <FormCard className="relative self-center z-1">
+        <FormCard className="relative self-center z-1 w-screen h-screen sm:max-w-md sm:w-full sm:h-fit justify-center content-center">
           <form
             onSubmit={handleSubmit}
-            className="relative flex flex-col justify-center self-center space-y-4 items-center max-w-sm mx-auto w-lg"
+            className="relative flex flex-col justify-center self-center space-y-4 items-center w-full"
           >
             <p className="text-3xl self-center">Sign in</p>
             <Input
               onChange={handleEmailUpdate}
-              className="w-full form-control"
+              className="w-full form-control shrink"
               type="email"
               id="email"
               placeholder="Enter your email"
@@ -96,14 +96,14 @@ export default function Login() {
               </Link>
 
             </div>
+            <p
+              className="absolute text-sm text-red-400 text-center mx-auto w-100 -z-10"
+              style={{ opacity: 0, bottom: 0 }}
+              id="error-message"
+            >
+              {errorMessage ? errorMessage : ""}
+            </p>
           </form>
-          <p
-            className="absolute text-sm text-red-400 text-center mx-auto w-100 -z-10"
-            style={{ opacity: 0, bottom: 0 }}
-            id="error-message"
-          >
-            {errorMessage ? errorMessage : ""}
-          </p>
         </FormCard>
       </Container>
     </>
