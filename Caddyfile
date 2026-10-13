@@ -1,4 +1,4 @@
-localhost {
+http://localhost {
   handle {
     reverse_proxy webclient:3001
   }
@@ -6,6 +6,6 @@ localhost {
     reverse_proxy api:3000
   }
 }
-mail.localhost {
+http://mail.localhost {
     reverse_proxy mailpit:8025
 }

@@ -23,8 +23,6 @@ services:
   api:
     depends_on:
       - gotrue
-    ports:
-    - 3000:3000
     build:
       context: .
     command: bun run dev --port 3000 --host 0.0.0.0
@@ -34,8 +32,6 @@ services:
     environment:
       GOTRUE_JWT_SECRET: ${GOTRUE_JWT_SECRET}
   webclient:
-    ports:
-     - 3001:3001
     build:
       context: ./src/apps/webclient
     command: bun run dev --port 3001 --host 0.0.0.0
@@ -44,8 +40,6 @@ services:
       - /app/node_modules
   db:
     image: postgres:17
-    ports:
-      - 5432:5432
     restart: always
     # set shared memory limit when using docker compose
     shm_size: 128mb
@@ -84,11 +78,8 @@ services:
         condition: service_completed_successfully
       db:
         condition: service_healthy
-          
-      
+           
   mailpit: 
     image: axllent/mailpit:latest
-    ports: 
-      - 9000:8025
 volumes:
   postgres:

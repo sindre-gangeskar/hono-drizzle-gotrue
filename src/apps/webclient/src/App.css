@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
 body {
 	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 	color: #fff;
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	background-color: #101010;
+	font-family: "Nunito Sans", Avenir, Helvetica, Arial, sans-serif;
+	background-color: black;
 }
 
 .content {
